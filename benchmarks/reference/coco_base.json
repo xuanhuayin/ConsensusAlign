@@ -1,0 +1,96 @@
+{
+  "source": "Accompanying manuscript, Table 1",
+  "status": "paper reference values, not a new run of this repository",
+  "aggregation": "seed mean across 21 pairs, then mean and sample SD across 5 seeds",
+  "failure_threshold": 0.05,
+  "records": [
+    {
+      "method": "GeoWarP",
+      "n_seeds": 5,
+      "seed_values": [
+        734796314,
+        576165995,
+        2197670066,
+        839703249,
+        2584932063
+      ],
+      "alignment": {
+        "mean": 0.1456851910002892,
+        "sd": 0.015114255614014352,
+        "failures": 68,
+        "n_cells": 105,
+        "worst": 0.4658838593722065
+      },
+      "downstream": {
+        "AVG10": {
+          "mean": 0.10889310574527675,
+          "sd": 0.00935342276678811,
+          "n_seeds": 5,
+          "pairs_per_seed": 12
+        },
+        "ImageNet-1k": {
+          "mean": 0.04342166656279005,
+          "sd": 0.0070688866139950405,
+          "n_seeds": 5,
+          "pairs_per_seed": 12
+        },
+        "i2t_R@1": {
+          "mean": 0.061549999949056654,
+          "sd": 0.014478863971081396,
+          "n_seeds": 5,
+          "pairs_per_seed": 12
+        },
+        "t2i_R@1": {
+          "mean": 0.05345333344424338,
+          "sd": 0.01102797198379579,
+          "n_seeds": 5,
+          "pairs_per_seed": 12
+        }
+      }
+    },
+    {
+      "method": "ConsensusAlign",
+      "n_seeds": 5,
+      "seed_values": [
+        734796314,
+        576165995,
+        2197670066,
+        839703249,
+        2584932063
+      ],
+      "alignment": {
+        "mean": 0.0099373703155474,
+        "sd": 0.004018540310335068,
+        "failures": 0,
+        "n_cells": 105,
+        "worst": 0.02558042045044185
+      },
+      "downstream": {
+        "AVG10": {
+          "mean": 0.1964462610675643,
+          "sd": 0.008612710091424246,
+          "n_seeds": 5,
+          "pairs_per_seed": 12
+        },
+        "ImageNet-1k": {
+          "mean": 0.12052333361158768,
+          "sd": 0.005654726668543483,
+          "n_seeds": 5,
+          "pairs_per_seed": 12
+        },
+        "i2t_R@1": {
+          "mean": 0.2197500005364418,
+          "sd": 0.01482876776234187,
+          "n_seeds": 5,
+          "pairs_per_seed": 12
+        },
+        "t2i_R@1": {
+          "mean": 0.18909666563073793,
+          "sd": 0.009875097513984445,
+          "n_seeds": 5,
+          "pairs_per_seed": 12
+        }
+      }
+    }
+  ]
+}

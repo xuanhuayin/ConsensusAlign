@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "consensusalign"
+version = "1.0.0"
+description = "One pooled bridge for unpaired encoder alignment"
+authors = [
+    {name = "Xuanhua Yin"},
+    {name = "Shunqi Mao"},
+    {name = "Chuanzhi Xu"},
+    {name = "Boyu Wei"},
+    {name = "Wei Guo"},
+    {name = "Weidong Cai"},
+]
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY.md", "src/consensusalign/_wp/LICENSE"]
+dependencies = [
+    "torch==2.10.0",
+    "numpy==2.4.1",
+    "scipy==1.17.1",
+    "scikit-learn==1.9.1",
+    "pylibmgm==1.1.2",
+    "threadpoolctl==3.7.0",
+    "tqdm==4.67.2",
+]
+
+[project.scripts]
+consensusalign = "consensusalign.__main__:main"
+consensusalign-data = "consensusalign.datasets:main"
+consensusalign-reproduce = "consensusalign.reproduce:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["consensusalign*"]
+
+[tool.setuptools.package-data]
+"consensusalign._wp" = ["LICENSE"]
+
+[project.optional-dependencies]
+data = ["huggingface-hub==2.4.0"]
+dev = ["pytest==9.2.0", "ruff==0.17.6", "build==1.6.1", "PyYAML>=6,<7"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib -ra"
+markers = ["integration: subprocess and end-to-end checks with synthetic inputs"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+extend-exclude = ["src/consensusalign/_wp"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/consensusalign/__init__.py" = ["E402", "I001"]

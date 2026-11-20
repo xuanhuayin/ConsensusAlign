@@ -1,0 +1,26 @@
+{
+  "name": "coco_base",
+  "train_manifest": "coco_train.json",
+  "evaluation_manifest": "coco_val.json",
+  "seed_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "anchor_budgets": [
+    0
+  ],
+  "latent_dim": 768,
+  "weighting": "uniform",
+  "wp": {
+    "num_clusters": 30,
+    "num_restarts": 30,
+    "batch_size": 10000,
+    "num_iterations": 100,
+    "num_workers": 4,
+    "num_threads": 4
+  },
+  "evaluation_block_size": 256
+}

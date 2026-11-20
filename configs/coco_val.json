@@ -1,0 +1,39 @@
+{
+  "layout": "paired-corpus",
+  "task": "alignment",
+  "vision": {
+    "dinov2_b": {
+      "path": "../features/embeddings/coco_val2014/vision/dinov2_vit-b14@224_mean.pt"
+    },
+    "dinov2_g": {
+      "path": "../features/embeddings/coco_val2014/vision/dinov2_vit-g14@224_mean.pt"
+    },
+    "dinov3_7b": {
+      "path": "../features/embeddings/coco_val2014/vision/dinov3_vit-7b16@512_mean.pt"
+    },
+    "franca_cls": {
+      "path": "../features/embeddings/coco_val2014/vision/franca_vit-g14@224_laion.pt"
+    },
+    "franca_mean": {
+      "path": "../features/embeddings/coco_val2014/vision/franca_vit-g14@224_laion_mean.pt"
+    },
+    "ibot_swin": {
+      "path": "../features/embeddings/coco_val2014/vision/ibot_swint_14@224_mean.pt"
+    },
+    "ibot_b": {
+      "path": "../features/embeddings/coco_val2014/vision/ibot_vit-b16@224_mean.pt"
+    }
+  },
+  "text": {
+    "mpnet": {
+      "path": "../features/embeddings/coco_val2014/language/mpnet.pt"
+    },
+    "qwen3_embedding": {
+      "path": "../features/embeddings/coco_val2014/language/qwen3-embedding-8b.pt"
+    },
+    "qwen3_generative": {
+      "path": "../features/embeddings/coco_val2014/language/qwen3-8b-gen_69445574b3021b8a2733e87d8603d769.pt",
+      "prereduce": true
+    }
+  }
+}

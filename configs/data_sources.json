@@ -1,0 +1,9 @@
+{
+  "repository": "schnaus/unpaired-rosetta-embeddings",
+  "repository_type": "dataset",
+  "revision": "b39767e18cdb5031020a0e1c4b8d9fba6ae13453",
+  "manifests": [
+    "coco_train.json",
+    "coco_val.json"
+  ]
+}

@@ -1,0 +1,27 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv-*/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+# Data, model checkpoints and generated runs
+features/
+outputs/
+smoke_output/
+*.pt
+*.npy
+*.npz
+*.log
+# Local credentials and editor state
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
