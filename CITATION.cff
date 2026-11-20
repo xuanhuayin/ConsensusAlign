@@ -7,22 +7,22 @@ license: MIT
 authors:
   - given-names: "Xuanhua"
     family-names: "Yin"
-    affiliation: "University of Sydney"
+    affiliation: "The University of Sydney"
   - given-names: "Shunqi"
     family-names: "Mao"
-    affiliation: "University of Sydney"
+    affiliation: "The University of Sydney"
   - given-names: "Chuanzhi"
     family-names: "Xu"
-    affiliation: "University of Sydney"
+    affiliation: "The University of Sydney"
   - given-names: "Boyu"
     family-names: "Wei"
-    affiliation: "University of Sydney"
+    affiliation: "The University of Sydney"
   - given-names: "Wei"
     family-names: "Guo"
-    affiliation: "University of Sydney"
+    affiliation: "The University of Sydney"
   - given-names: "Weidong"
     family-names: "Cai"
-    affiliation: "University of Sydney"
+    affiliation: "The University of Sydney"
 keywords:
   - unpaired alignment
   - representation learning

@@ -4,7 +4,7 @@
 ### From Pairwise to Collective: Unpaired Vision–Language Alignment
 
 **Xuanhua Yin · Shunqi Mao · Chuanzhi Xu · Boyu Wei · Wei Guo · Weidong Cai**  
-University of Sydney
+The University of Sydney
 
 [Quick Start](#quick-start) · [Reproduce](#reproduce-the-paper-protocol) · [Method](docs/method.md) · [Data](docs/data.md) · [API](docs/api.md) · [Citation](#citation)
 
