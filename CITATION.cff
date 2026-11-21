@@ -4,25 +4,28 @@ type: software
 title: "ConsensusAlign: From Pairwise to Collective"
 version: 1.0.0
 license: MIT
+url: "https://xuanhuayin.github.io/ConsensusAlign/"
+repository-code: "https://github.com/xuanhuayin/ConsensusAlign"
 authors:
   - given-names: "Xuanhua"
     family-names: "Yin"
-    affiliation: "The University of Sydney"
+    email: "xuanhua.yin@sydney.edu.au"
+    affiliation: "School of Computer Science, The University of Sydney"
   - given-names: "Shunqi"
     family-names: "Mao"
-    affiliation: "The University of Sydney"
+    affiliation: "School of Computer Science, The University of Sydney"
   - given-names: "Chuanzhi"
     family-names: "Xu"
-    affiliation: "The University of Sydney"
+    affiliation: "School of Computer Science, The University of Sydney"
   - given-names: "Boyu"
     family-names: "Wei"
-    affiliation: "The University of Sydney"
+    affiliation: "School of Computer Science, The University of Sydney"
   - given-names: "Wei"
     family-names: "Guo"
-    affiliation: "The University of Sydney"
+    affiliation: "School of Computer Science, The University of Sydney"
   - given-names: "Weidong"
     family-names: "Cai"
-    affiliation: "The University of Sydney"
+    affiliation: "School of Computer Science, The University of Sydney"
 keywords:
   - unpaired alignment
   - representation learning
@@ -30,7 +33,7 @@ keywords:
   - Wasserstein Procrustes
 preferred-citation:
   type: unpublished
-  title: "From Pairwise to Collective: Unpaired Vision-Language Alignment"
+  title: "From Pairwise to Collective: Encoder Collections Make Unpaired Vision-Language Alignment Reliable"
   year: 2026
   authors:
     - given-names: "Xuanhua"

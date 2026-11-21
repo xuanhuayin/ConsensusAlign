@@ -2,6 +2,7 @@ import json
 import re
 import tomllib
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import yaml
 
@@ -14,16 +15,22 @@ def test_public_authorship_and_software_metadata():
     citation = yaml.safe_load((ROOT / "CITATION.cff").read_text())
     assert [author["name"] for author in project["authors"]] == AUTHORS
     assert [author["given-names"] + " " + author["family-names"] for author in citation["authors"]] == AUTHORS
-    assert all(author["affiliation"] == "The University of Sydney" for author in citation["authors"])
+    assert all(
+        author["affiliation"] == "School of Computer Science, The University of Sydney"
+        for author in citation["authors"]
+    )
     assert project["version"] == citation["version"]
     assert citation["preferred-citation"]["type"] == "unpublished"
-    assert "url" not in citation and "doi" not in citation
+    assert citation["url"] == "https://xuanhuayin.github.io/ConsensusAlign/"
+    assert citation["repository-code"] == "https://github.com/xuanhuayin/ConsensusAlign"
+    assert citation["authors"][0]["email"] == "xuanhua.yin@sydney.edu.au"
+    assert "doi" not in citation
 
 
 def test_local_documentation_links_and_overview_exist():
     for path in [ROOT / "README.md", ROOT / "CONTRIBUTING.md", *sorted((ROOT / "docs").glob("*.md"))]:
         for link in re.findall(r"\]\(([^)]+)\)", path.read_text()):
-            if "://" in link or link.startswith("#"):
+            if urlsplit(link).scheme or link.startswith("#"):
                 continue
             target = link.split("#", 1)[0]
             assert (path.parent / target).exists(), (path.name, target)

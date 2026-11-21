@@ -1,12 +1,14 @@
 <div align="center">
 
-# ConsensusAlign
-### From Pairwise to Collective: Unpaired Vision–Language Alignment
+<img src="docs/assets/wordmark.svg" alt="ConsensusAlign: From Pairwise to Collective" width="900">
+### From Pairwise to Collective: Encoder Collections Make Unpaired Vision-Language Alignment Reliable
 
 **Xuanhua Yin · Shunqi Mao · Chuanzhi Xu · Boyu Wei · Wei Guo · Weidong Cai**  
-The University of Sydney
+School of Computer Science, The University of Sydney  
+Sydney, NSW 2006, Australia  
+Contact: [xuanhua.yin@sydney.edu.au](mailto:xuanhua.yin@sydney.edu.au)
 
-[Quick Start](#quick-start) · [Reproduce](#reproduce-the-paper-protocol) · [Method](docs/method.md) · [Data](docs/data.md) · [API](docs/api.md) · [Citation](#citation)
+[Project page](https://xuanhuayin.github.io/ConsensusAlign/) · [Paper](https://xuanhuayin.github.io/ConsensusAlign/assets/ConsensusAlign.pdf) · [Quick Start](#quick-start) · [Reproduce](#reproduce-the-paper-protocol) · [Method](docs/method.md) · [Data](docs/data.md) · [API](docs/api.md) · [Citation](#citation)
 
 <img src="docs/assets/overview.svg" alt="Within-modality pools, one cross-modal WP bridge, and native encoder interfaces" width="100%">
 
@@ -127,7 +129,7 @@ agreement score. Alignment itself requires one pooled bridge.
 src/consensusalign/       final method, input, scoring and CLI
   _wp/                   required upstream WP numerical solver
 configs/                 fixed manifests and reproducible plans
-docs/                    method, data, API and reproduction protocols
+docs/                    project website and scientific documentation
 benchmarks/reference/    paper reference summaries
 examples/                small end-to-end example
 tests/                   mathematical, data-flow and integration checks
@@ -153,10 +155,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ```bibtex
 @unpublished{yin2026consensusalign,
-  title  = {From Pairwise to Collective: Unpaired Vision-Language Alignment},
+  title  = {From Pairwise to Collective: Encoder Collections Make Unpaired Vision-Language Alignment Reliable},
   author = {Yin, Xuanhua and Mao, Shunqi and Xu, Chuanzhi and Wei, Boyu
             and Guo, Wei and Cai, Weidong},
-  year   = {2026}
+  year   = {2026},
+  url    = {https://xuanhuayin.github.io/ConsensusAlign/}
 }
 ```
 

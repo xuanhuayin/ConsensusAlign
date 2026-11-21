@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ConsensusAlign pools encoder collections, fits one unpaired bridge, and distributes native vision-language interfaces in closed form.">
+  <meta name="theme-color" content="#142b43">
+  <meta property="og:title" content="ConsensusAlign · From Pairwise to Collective">
+  <meta property="og:description" content="One unpaired fit connects a collection of frozen vision and text encoders.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xuanhuayin.github.io/ConsensusAlign/">
+  <meta property="og:image" content="https://xuanhuayin.github.io/ConsensusAlign/assets/teaser.png">
+  <title>ConsensusAlign · From Pairwise to Collective</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="site.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#main"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>ConsensusAlign</a>
+      <div class="nav-links"><a href="#method">Method</a><a href="#results">Results</a><a href="#reproduce">Code</a><a href="#citation">Cite</a></div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap">
+      <p class="eyebrow"><span></span>Unpaired vision-language alignment</p>
+      <h1>Consensus<span>Align</span></h1>
+      <h2 class="paper-title">From Pairwise to Collective:<br>Encoder Collections Make Unpaired<br class="wide-break"> Vision-Language Alignment Reliable</h2>
+      <div class="authors" aria-label="Authors">
+        <a href="mailto:xuanhua.yin@sydney.edu.au">Xuanhua Yin<sup>*</sup></a><span>Shunqi Mao</span><span>Chuanzhi Xu</span><span>Boyu Wei</span><span>Wei Guo</span><span>Weidong Cai</span>
+      </div>
+      <p class="affiliation">School of Computer Science, <a href="https://www.sydney.edu.au/engineering/schools/school-of-computer-science.html">The University of Sydney</a><br><span>Sydney, NSW 2006, Australia</span></p>
+      <div class="resources">
+        <a class="button primary" href="assets/ConsensusAlign.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg>Paper</a>
+        <a class="button code-button" href="https://github.com/xuanhuayin/ConsensusAlign"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16"/></svg>Code</a>
+        <a class="button" href="assets/consensusalign_arxiv_source.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v5H4zM6 9v12h12V9M10 13h4"/></svg>Paper source</a>
+      </div>
+      <p class="hero-summary">Pool each modality. Fit one bridge.<br><strong>Connect every encoder pair.</strong></p>
+    </section>
+
+    <figure class="teaser wrap">
+      <button class="figure-button" data-zoom="assets/teaser.png" aria-label="Enlarge the alignment overview">
+        <img src="assets/teaser.png" width="2000" height="433" fetchpriority="high" alt="Encoder collections feed a shared bridge. An iBOT-B/MPNet retrieval example improves, and pooled fitting succeeds across the tested 7 by 3 encoder grid.">
+        <span class="zoom-label">View larger</span>
+      </button>
+      <figcaption>Known correspondences within each modality turn a collection of independently trained encoders into one alignment problem.</figcaption>
+    </figure>
+
+    <section class="overview-section wrap section-space" aria-labelledby="overview-title">
+      <div class="section-heading"><p class="eyebrow">The idea</p><h2 id="overview-title">A collection supplies<br>the missing structure.</h2></div>
+      <div class="overview-copy">
+        <p>Vision and text encoders trained independently have different coordinate systems. Searching for a map between every pair repeats a fragile unpaired problem.</p>
+        <p>Within a modality, the correspondence is already known: every vision encoder sees the same images, and every text encoder sees the same texts. <strong>ConsensusAlign combines that geometry before the cross-modal search.</strong></p>
+        <details><summary>Read the full abstract</summary><p id="abstract-text">Strong vision and text encoders can be trained independently, but their representations are not directly comparable. Connecting them usually requires paired image-text data, which may be unavailable. Unpaired alignment instead fits a map between a vision and a text encoder from feature-space geometry alone, enabling text-based retrieval and zero-shot classification without paired data. Treating each pair independently leads to fragile searches, repeated fitting, and uncertain map quality. A collection of encoders supplies additional supervision: all vision encoders embed the same images and all text encoders the same texts. Correspondences within each modality are therefore known exactly, while the cross-modal correspondence remains hidden. ConsensusAlign pools each modality into a shared space, fits one unpaired cross-modal bridge, and transfers it in closed form to every encoder pair. New encoders join through same-modality fitting without repeating the cross-modal search. On 21 vision-text encoder pairs and five seeds, pooled fitting aligns every pair, whereas pairwise fits fail in 68 of 105 pair-seed cells. Mean alignment error (FOSCTTM) falls from 0.1457 to 0.0099, and zero-shot accuracy nearly doubles on ten datasets. Gains persist across the tested within-modality pooling constructions with a WP bridge. New corpora reuse the bridge through native maps fitted to unlabeled target features from every source encoder. Agreement with separately fitted reference maps detects failures on COCO.</p></details>
+      </div>
+    </section>
+
+    <section id="method" class="method-section section-space">
+      <div class="wrap">
+        <div class="section-heading horizontal"><div><p class="eyebrow">Method</p><h2>One bridge.<br>Many native interfaces.</h2></div><p>Pool frozen features within each modality using concatenation and PCA. Fit one Wasserstein Procrustes bridge, then distribute it through closed-form native factors.</p></div>
+        <figure class="pipeline">
+          <button class="figure-button" data-zoom="assets/pipeline.png" aria-label="Enlarge the full method pipeline"><img src="assets/pipeline.png" width="2000" height="760" loading="lazy" alt="Within-modality pooling, an unpaired WP bridge, closed-form native distribution, and optional agreement diagnosis."><span class="zoom-label">View larger</span></button>
+          <figcaption>Pooling and bridge fitting use the collection. A deployed native interface uses only its two encoders and one matrix.</figcaption>
+        </figure>
+        <div class="interface-lab">
+          <div class="lab-intro"><p class="eyebrow">Explore an interface</p><h3>The bridge stays fixed.</h3><p>Choose two encoders to see the native map they receive.</p></div>
+          <div class="encoder-picker">
+            <label for="vision-select">Vision encoder</label>
+            <select id="vision-select"><option value="dinov2_b">DINOv2-B</option><option value="dinov2_g">DINOv2-G</option><option value="dinov3_7b">DINOv3-7B</option><option value="franca_cls">Franca-G · CLS</option><option value="franca_mean">Franca-G · mean</option><option value="ibot_swin">iBOT-Swin</option><option value="ibot_b" selected>iBOT-B</option></select>
+            <label for="text-select">Text encoder</label>
+            <select id="text-select"><option value="mpnet">MPNet</option><option value="qwen3_embedding">Qwen3-Embedding-8B</option><option value="qwen3_generative">Qwen3-8B · generative</option></select>
+          </div>
+          <div class="map-output" aria-live="polite"><div class="map-equation"><span class="vision-color">Qᵥ</span><span class="bridge-symbol">C</span><span class="text-color">Rₗᵀ</span><span>=</span><span>Wᵥₗ</span></div><p><span id="map-dimension">768 × 768</span><span class="map-caption">native map</span></p><code id="interface-code">model.interface("ibot_b", "mpnet")</code><small>Shared bridge: 768 × 768</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="wrap section-space">
+      <div class="section-heading horizontal"><div><p class="eyebrow">Results</p><h2>Reliability across<br>the full collection.</h2></div><p>The base evaluation crosses seven vision configurations with three text encoders over five seeds. The fitting image and caption halves are disjoint.</p></div>
+      <div class="result-highlights">
+        <div><span class="metric">21<span>/21</span></span><p>encoder pairs aligned<br>over all five seeds</p></div>
+        <div><span class="metric">0<span>/105</span></span><p>failed pair-seed cells<br>with pooled fitting</p></div>
+        <div><span class="metric">19.6<span>%</span></span><p>zero-shot AVG10<br>across ten datasets</p></div>
+      </div>
+      <div class="table-scroll"><table><caption class="sr-only">Paper reference results comparing pairwise WP and ConsensusAlign</caption><thead><tr><th scope="col">Method</th><th scope="col">COCO FOSCTTM ↓</th><th scope="col">Failed cells ↓</th><th scope="col">AVG10 ↑</th><th scope="col">Flickr30k I→T R@1 ↑</th></tr></thead><tbody><tr><th scope="row">Pairwise WP</th><td>0.1457 ± 0.0151</td><td>68 / 105</td><td>10.9%</td><td>6.2%</td></tr><tr class="ours"><th scope="row">ConsensusAlign</th><td>0.0099 ± 0.0040</td><td>0 / 105</td><td>19.6%</td><td>22.0%</td></tr></tbody></table></div>
+      <p class="table-note">Values from the paper. Alignment covers 21 pairs × 5 seeds, with failure defined by FOSCTTM &gt; 0.05. Mean ± sample SD is computed across seed means. Downstream results use the fixed 12-pair subset over five seeds.</p>
+    </section>
+
+    <section id="reproduce" class="reproduce-section section-space">
+      <div class="wrap reproduce-grid">
+        <div class="section-heading"><p class="eyebrow">Get started</p><h2>From frozen features<br>to aligned interfaces.</h2><p>The repository contains the final method, its supported extensions, reproducible configurations and tests.</p><a class="text-link" href="https://github.com/xuanhuayin/ConsensusAlign#quick-start">Installation and documentation</a></div>
+        <div class="terminal-panel">
+          <div class="terminal-tabs" role="tablist" aria-label="Reproduction examples"><button id="tab-smoke" role="tab" aria-selected="true" aria-controls="run-code" data-example="smoke">Smoke test</button><button id="tab-coco" role="tab" aria-selected="false" aria-controls="run-code" tabindex="-1" data-example="coco">COCO</button><button id="tab-anchors" role="tab" aria-selected="false" aria-controls="run-code" tabindex="-1" data-example="anchors">Paired anchors</button><button class="copy-button" data-copy="run-code" aria-label="Copy the selected run command">Copy</button></div>
+          <div role="tabpanel" id="run-code" aria-labelledby="tab-smoke" tabindex="0"><pre><code id="run-command"></code></pre></div>
+          <p class="terminal-note" id="example-note">A small synthetic check of the actual implementation. No feature download required.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="citation" class="wrap section-space citation-grid">
+      <div class="section-heading"><p class="eyebrow">Citation & contact</p><h2>Build on<br>ConsensusAlign.</h2><p>Questions about the paper or implementation:</p><a class="email-link" href="mailto:xuanhua.yin@sydney.edu.au">xuanhua.yin@sydney.edu.au</a></div>
+      <div class="citation-box"><div class="citation-top"><span>BibTeX</span><button class="copy-button" data-copy="bibtex">Copy citation</button></div><pre id="bibtex">@unpublished{yin2026consensusalign,
+  title = {From Pairwise to Collective:
+    Encoder Collections Make Unpaired
+    Vision-Language Alignment Reliable},
+  author = {Yin, Xuanhua and Mao, Shunqi
+    and Xu, Chuanzhi and Wei, Boyu
+    and Guo, Wei and Cai, Weidong},
+  year = {2026},
+  url = {https://xuanhuayin.github.io/ConsensusAlign/}
+}</pre></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap"><a class="brand" href="#main">ConsensusAlign</a><p>School of Computer Science · The University of Sydney<br>Sydney, NSW 2006, Australia</p><a href="https://github.com/xuanhuayin/ConsensusAlign/blob/main/LICENSE">Code: MIT License</a></div></footer>
+  <dialog id="figure-dialog" aria-label="Expanded research figure"><button id="close-figure" aria-label="Close the expanded figure">Close</button><div class="expanded-image"><img id="expanded-figure" alt=""></div><p>Scroll to inspect the figure. Press Escape to close.</p></dialog>
+  <div class="sr-only" id="copy-status" role="status" aria-live="polite"></div>
+</body>
+</html>

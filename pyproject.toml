@@ -7,7 +7,7 @@ name = "consensusalign"
 version = "1.0.0"
 description = "One pooled bridge for unpaired encoder alignment"
 authors = [
-    {name = "Xuanhua Yin"},
+    {name = "Xuanhua Yin", email = "xuanhua.yin@sydney.edu.au"},
     {name = "Shunqi Mao"},
     {name = "Chuanzhi Xu"},
     {name = "Boyu Wei"},
@@ -27,6 +27,11 @@ dependencies = [
     "threadpoolctl==3.7.0",
     "tqdm==4.67.2",
 ]
+
+[project.urls]
+Homepage = "https://xuanhuayin.github.io/ConsensusAlign/"
+Repository = "https://github.com/xuanhuayin/ConsensusAlign"
+Paper = "https://xuanhuayin.github.io/ConsensusAlign/assets/ConsensusAlign.pdf"
 
 [project.scripts]
 consensusalign = "consensusalign.__main__:main"
