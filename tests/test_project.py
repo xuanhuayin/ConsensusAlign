@@ -27,14 +27,15 @@ def test_public_authorship_and_software_metadata():
     assert "doi" not in citation
 
 
-def test_local_documentation_links_and_overview_exist():
+def test_local_documentation_links_and_paper_figures_exist():
     for path in [ROOT / "README.md", ROOT / "CONTRIBUTING.md", *sorted((ROOT / "docs").glob("*.md"))]:
         for link in re.findall(r"\]\(([^)]+)\)", path.read_text()):
             if urlsplit(link).scheme or link.startswith("#"):
                 continue
             target = link.split("#", 1)[0]
             assert (path.parent / target).exists(), (path.name, target)
-    assert (ROOT / "docs/assets/overview.svg").is_file()
+    assert (ROOT / "docs/assets/teaser.png").is_file()
+    assert (ROOT / "docs/assets/pipeline.png").is_file()
 
 
 def test_reference_results_have_explicit_provenance():

@@ -1,6 +1,7 @@
 <div align="center">
 
-<img src="docs/assets/wordmark.svg" alt="ConsensusAlign: From Pairwise to Collective" width="900">
+# ConsensusAlign
+
 ### From Pairwise to Collective: Encoder Collections Make Unpaired Vision-Language Alignment Reliable
 
 **Xuanhua Yin · Shunqi Mao · Chuanzhi Xu · Boyu Wei · Wei Guo · Weidong Cai**  
@@ -10,7 +11,7 @@ Contact: [xuanhua.yin@sydney.edu.au](mailto:xuanhua.yin@sydney.edu.au)
 
 [Project page](https://xuanhuayin.github.io/ConsensusAlign/) · [Paper](https://xuanhuayin.github.io/ConsensusAlign/assets/ConsensusAlign.pdf) · [Quick Start](#quick-start) · [Reproduce](#reproduce-the-paper-protocol) · [Method](docs/method.md) · [Data](docs/data.md) · [API](docs/api.md) · [Citation](#citation)
 
-<img src="docs/assets/overview.svg" alt="Within-modality pools, one cross-modal WP bridge, and native encoder interfaces" width="100%">
+<img src="docs/assets/teaser.png" alt="Teaser from the paper: encoder collections, retrieval example and COCO alignment results" width="100%">
 
 </div>
 
@@ -23,6 +24,10 @@ and one matrix.
 This repository contains the final construction, its current extensions,
 reproduction tooling, and self-contained tests. Alignment starts from stored
 encoder features. The public base feature release is linked below.
+
+## Method Overview
+
+![Method overview from the paper](docs/assets/pipeline.png)
 
 ## Quick Start
 
