@@ -12,7 +12,7 @@ text.addEventListener("change", updateInterface);
 
 const examples = {
   smoke: {
-    code: "git clone https://github.com/xuanhuayin/ConsensusAlign.git\ncd ConsensusAlign\npython -m pip install torch==2.10.0 \\\n  --index-url https://download.pytorch.org/whl/cpu\npython -m pip install -e \".[data]\"\npython examples/smoke.py --output smoke_output",
+    code: "git clone https://github.com/xuanhuayin/ConsensusAlign.git\ncd ConsensusAlign\npython -m venv .venv\nsource .venv/bin/activate\npython -m pip install torch==2.10.0 \\\n  --index-url https://download.pytorch.org/whl/cpu\npython -m pip install -e \".[data]\"\npython examples/smoke.py --output smoke_output",
     note: "A small synthetic check of the actual implementation. No feature download required."
   },
   coco: {
